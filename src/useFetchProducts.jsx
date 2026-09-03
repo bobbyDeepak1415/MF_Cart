@@ -11,7 +11,7 @@ const useFetchProducts = (url) => {
 
                 const res=await fetch(url)
                 const response=await res.json()
-                set
+                setProducts(response.products)
             }catch(err){
                 console.log("failed to fetch...",err)
             }

@@ -7,6 +7,7 @@ const url="https://dummyjson.com/products"
 const ProductsListing = () => {
 
     const {products}=useFetchProducts(url)
+    const [cartItems,setCartItems]=useState([])
 
   return (
     <div>
@@ -14,9 +15,22 @@ const ProductsListing = () => {
 
       ProductsList
         </h2>
+        <ol>
+
         {products.map((product)=>{
             return <li key={product.id}>{product.title}</li>
         })}
+        </ol>
+
+        <div>
+            <h3>Your Cart:</h3>
+            <ul>
+                {cartItems.map((item,id)=>{
+                    return <li key={id}>{item}</li>
+                })}
+            </ul>
+{}
+        </div>
     </div>
   )
 }
