@@ -11,6 +11,10 @@ const ProductsListing = () => {
 
 
 
+    const addToCart=(product)=>{
+setCartItems([...cartItems,{name:product.title,price:product.price}])
+    }
+
     
   return (
     <div style={{height:"100vh",width:"100vh",backgroundColor:"gray"}}>
@@ -25,6 +29,7 @@ const ProductsListing = () => {
                 <span>
 
                 {product.title}
+                <span style={{marginLeft:"10px",color:"blue"}}>{product.price}</span>
                 </span>
                 <span><button onClick={()=>addToCart(product)} style={{marginLeft:"10px"}}>Add To cart</button></span>
                 </li>
@@ -34,8 +39,8 @@ const ProductsListing = () => {
         <div>
             <h3>Your Cart:</h3>
             <ul>
-                {cartItems.map((item,id)=>{
-                    return <li key={id}>{item}</li>
+                {cartItems.map((item)=>{
+                    return <li key={id}>{item.name}</li>
                 })}
             </ul>
 
