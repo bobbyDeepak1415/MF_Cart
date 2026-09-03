@@ -1,25 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const useFetchProducts = (url) => {
 
     const [products,setProducts]=useState([])
+    
 
     useEffect(()=>{
         const fetchData=async()=>{
             try{
 
                 const res=await fetch(url)
-                setProducts(res.json())
+                const response=await res.json()
+                set
+            }catch(err){
+                console.log("failed to fetch...",err)
             }
         }
 
+        fetchData()
+
     },[url])
 
-  return (
-    <div>
-      
-    </div>
-  )
+  return {products}
 }
 
 export default useFetchProducts

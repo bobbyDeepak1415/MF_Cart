@@ -14,6 +14,9 @@ const ProductsListing = () => {
 
       ProductsList
         </h2>
+        {products.map((product)=>{
+            return <li key={product.id}>{product.title}</li>
+        })}
     </div>
   )
 }
