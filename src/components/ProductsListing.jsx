@@ -15,6 +15,13 @@ const ProductsListing = () => {
 setCartItems([...cartItems,{name:product.title,price:product.price}])
     }
 
+    const handleDeleteItem=(id)=>{
+
+        const newArr=cartItems.filter((_,i)=>i!==id)
+
+        setCartItems(newArr)
+
+    }
     
   return (
     <div style={{height:"100vh",width:"100vh",backgroundColor:"gray"}}>
@@ -29,9 +36,9 @@ setCartItems([...cartItems,{name:product.title,price:product.price}])
                 <span>
 
                 {product.title}
-                <span style={{marginLeft:"10px",color:"blue"}}>{product.price}</span>
                 </span>
-                <span><button onClick={()=>addToCart(product)} style={{marginLeft:"10px"}}>Add To cart</button></span>
+                <span style={{marginLeft:"10px",color:"blue"}}>{product.price}</span>
+                <button onClick={()=>addToCart(product)} style={{marginLeft:"10px"}}>Add To cart</button>
                 </li>
         })}
         </ol>
@@ -40,7 +47,9 @@ setCartItems([...cartItems,{name:product.title,price:product.price}])
             <h3>Your Cart:</h3>
             <ul>
                 {cartItems.map((item)=>{
-                    return <li key={id}>{item.name}</li>
+                    return <li key={item.id}>{item.name}
+                    <button onClick={()=>handleDeleteItem(item.id)}>Remove</button>
+                    </li>
                 })}
             </ul>
 
