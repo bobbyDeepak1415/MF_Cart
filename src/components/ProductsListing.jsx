@@ -10,8 +10,8 @@ const ProductsListing = () => {
     const [cartItems,setCartItems]=useState([])
 
     const addToCart=(product)=>{
-        e.preventDefault()
-        setCartItems([...cartItems,product])
+        const itemName=product.title
+        setCartItems([...cartItems,itemName])
 
     }
 
@@ -38,7 +38,7 @@ const ProductsListing = () => {
             <h3>Your Cart:</h3>
             <ul>
                 {cartItems.map((item,id)=>{
-                    return <li key={id}>{item}</li>
+                    return <li key={id}>{item.title}</li>
                 })}
             </ul>
 
