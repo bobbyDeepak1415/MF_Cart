@@ -38,7 +38,7 @@ const ProductsListing = () => {
             <h3>Your Cart:</h3>
             <ul>
                 {cartItems.map((item,id)=>{
-                    return <li key={id}>{item.title}</li>
+                    return <li key={id}>{item}</li>
                 })}
             </ul>
 
