@@ -18,7 +18,13 @@ const ProductsListing = () => {
         <ol>
 
         {products.map((product)=>{
-            return <li key={product.id}>{product.title}</li>
+            return <li key={product.id}>
+                <span>
+
+                {product.title}
+                </span>
+                <span><button>Add To cart</button></span>
+                </li>
         })}
         </ol>
 
