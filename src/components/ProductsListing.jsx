@@ -9,9 +9,9 @@ const ProductsListing = () => {
     const {products}=useFetchProducts(url)
     const [cartItems,setCartItems]=useState([])
 
-    const addToCart=(e)=>{
+    const addToCart=(product)=>{
         e.preventDefault()
-        setCartItems([...cartItems,])
+        setCartItems([...cartItems,product])
 
     }
 
@@ -29,7 +29,7 @@ const ProductsListing = () => {
 
                 {product.title}
                 </span>
-                <span><button onClick={()=>addToCart()} style={{marginLeft:"10px"}}>Add To cart</button></span>
+                <span><button onClick={()=>addToCart(product)} style={{marginLeft:"10px"}}>Add To cart</button></span>
                 </li>
         })}
         </ol>
@@ -41,7 +41,7 @@ const ProductsListing = () => {
                     return <li key={id}>{item}</li>
                 })}
             </ul>
-{}
+
         </div>
     </div>
   )
