@@ -9,14 +9,11 @@ const ProductsListing = () => {
     const {products}=useFetchProducts(url)
     const [cartItems,setCartItems]=useState([])
 
-    const addToCart=(product)=>{
-        const itemName=product.title
-        setCartItems([...cartItems,itemName])
 
-    }
 
+    
   return (
-    <div>
+    <div style={{height:"100vh",width:"100vh",backgroundColor:"gray"}}>
         <h2>
 
       ProductsList
