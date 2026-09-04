@@ -17,6 +17,8 @@ const ProductsListing = () => {
 
     }
 
+    const total=cartItems.reduce((acc,item)=>acc+item.price,0)
+
   return (
     <div style={{height:"100vh",width:"100vw",backgroundColor:"gray"}}>
       <h2>Products List :</h2>
@@ -31,7 +33,18 @@ const ProductsListing = () => {
       
       <div>
         <h3>Your Cart Here</h3>
-        {cartItems}
+        <ul>
+
+        {cartItems.map((item)=>{
+
+            return <li key={item.id}>{item.name} 
+            <span style={{margin:"20px"}}>{item.price}</span>
+            <button>Remove</button>
+            </li>
+        }
+        )}
+        </ul>
+        <p>Cart Total:{total}</p>
       </div>
 
     </div>
