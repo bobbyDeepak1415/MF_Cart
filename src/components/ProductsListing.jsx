@@ -1,26 +1,16 @@
 
 import { useState } from "react"
 import useFetchProducts from "../useFetchProducts"
-
-const url="https://dummyjson.com/products"
-
-
-const ProductsListing = () => {
-
-    const {products}=useFetchProducts(url)
-    const [cartItems,setCartItems]=useState([])
+import ProductCart from "./ProductCart"
 
 
-    const handleAddToCart=(product)=>{
 
-        setCartItems([...cartItems,{name:product.title,id:product.id,price:product.price}])
 
-    }
+const ProductsListing = ({products,handleAddToCart}) => {
 
-    const total=cartItems.reduce((acc,item)=>acc+item.price,0)
-
-  return (
-    <div style={{height:"100vh",width:"100vw",backgroundColor:"gray"}}>
+    
+return (
+    <div >
       <h2>Products List :</h2>
 <ol>
     {products.map((product)=>{
@@ -31,21 +21,8 @@ const ProductsListing = () => {
     })}
 </ol>
       
-      <div>
-        <h3>Your Cart Here</h3>
-        <ul>
-
-        {cartItems.map((item)=>{
-
-            return <li key={item.id}>{item.name} 
-            <span style={{margin:"20px"}}>{item.price}</span>
-            <button>Remove</button>
-            </li>
-        }
-        )}
-        </ul>
-        <p>Cart Total:{total}</p>
-      </div>
+     
+      
 
     </div>
   )
