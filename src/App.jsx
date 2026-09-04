@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div style={{height:"100vh",width:"100vw",backgroundColor:"gray"}}>
-    <h1>E-cart2026</h1>
+    <h1>E-cart</h1>
     <ProductsListing  handleAddToCart={handleAddToCart} products={products} />
     
 
