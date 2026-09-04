@@ -11,7 +11,11 @@ const ProductsListing = () => {
     const [cartItems,setCartItems]=useState([])
 
 
-    const 
+    const handleAddToCart=(product)=>{
+
+        setCartItems([...cartItems,{name:product.title,id:product.id,price:product.price}])
+
+    }
 
   return (
     <div style={{height:"100vh",width:"100vw",backgroundColor:"gray"}}>
