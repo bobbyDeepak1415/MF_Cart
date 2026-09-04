@@ -22,8 +22,7 @@ function App() {
 
     }
 
-     const total=cartItems.reduce((acc,item)=>acc+item.price,0)
-
+// const total=cartItems.reduce((acc,item)=>acc+item.price,0)
 
 
 
