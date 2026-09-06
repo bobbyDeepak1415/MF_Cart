@@ -1,29 +1,23 @@
 
-import { useState } from "react"
-import useFetchProducts from "../useFetchProducts"
-import ProductCart from "./ProductCart"
 
 
-
-
-const ProductsListing = ({products,handleAddToCart}) => {
+const ProductsListing = ({products,handleAddItem}) => {
 
     
 return (
     <div >
-      <h2>Products List :</h2>
-<ol>
-    {products.map((product)=>{
-        return <li key={product.id}>{product.title}
-        <span style={{margin:"20px",color:"green"}}>{product.price}</span>
-        <button onClick={()=>handleAddToCart(product)}>Add To Cart</button>
-        </li>
-    })}
-</ol>
-      
-     
-      
+      <h2>Products Lists:</h2>
 
+            <ol>
+              {products.map((product)=>{
+                return <li key={product.id}>{product.title}
+                <span style={{margin:"20px",color:"green"}}> {product.price}</span>
+                <button onClick={()=>handleAddItem(product)}>Add To Cart</button>
+                </li>
+              })}
+             
+            </ol>
+        
     </div>
   )
 }
