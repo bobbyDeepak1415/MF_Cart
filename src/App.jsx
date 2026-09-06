@@ -9,8 +9,11 @@ function App() {
 
   const [cartItems,setCartItems]=useState([])
 
-  const handleAddItem=()=>{
-    const newArr=[]
+
+
+  const handleAddItem=(product)=>{
+    const newArr=[...cartItems,{name:product.title,id:product.id,price:product.price}]
+    setCartItems(newArr)
   }
 
       return(
@@ -23,7 +26,7 @@ function App() {
               {products.map((product)=>{
                 return <li key={product.id}>{product.title}
                 <span style={{margin:"20px",color:"green"}}> {product.price}</span>
-                <button onClick={()=>handleAddItem()}>Add To Cart</button>
+                <button onClick={()=>handleAddItem(product)}>Add To Cart</button>
                 </li>
               })}
              
