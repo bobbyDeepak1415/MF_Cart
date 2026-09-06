@@ -9,12 +9,13 @@ function App() {
 
   const [cartItems,setCartItems]=useState([])
 
-  const handleDelete=(item)=>{
-const newArr=cartItems.filter((_,i)=>i!==item.id)
+  const handleDelete=(index)=>{
+const newArr=cartItems.filter((_,i)=>i!==index)
     setCartItems(newArr)
 
   }
 
+const total=cartItems.reduce((acc,item)=>acc+item.price,0)
 
   const handleAddItem=(product)=>{
     const newArr=[...cartItems,{name:product.title,id:product.id,price:product.price}]
@@ -46,10 +47,11 @@ const newArr=cartItems.filter((_,i)=>i!==item.id)
               <span style={{margin:"15px",color:"green"}}> {item.price}
 
               </span>
-              <button onClick={()=>handleDelete(item)}>Remove</button>
+              <button onClick={()=>handleDelete(index)}>Remove</button>
               </li>
             })}
             </ul>
+            <p>Total:{total}</p>
           </div>
 
         </div>
