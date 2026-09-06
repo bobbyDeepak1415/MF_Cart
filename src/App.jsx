@@ -1,42 +1,38 @@
-import { useState } from "react"
-import ProductsListing from "./components/ProductsListing"
-import useFetchProducts from "./useFetchProducts"
-import ProductCart from "./components/ProductCart"
+
+import { useState } from 'react'
+import useFetchProducts from './useFetchProducts'
 
 const url="https://dummyjson.com/products"
 function App() {
 
   const {products}=useFetchProducts(url)
-    const [cartItems,setCartItems]=useState([])
 
-    const handleAddToCart=(product)=>{
+  const [cartItems,setCartItems]=useState([])
 
-        setCartItems([...cartItems,{name:product.title,id:product.id,price:product.price}])
+  const handleAddItem=()=>{
+    const newArr=[]
+  }
 
-    }
+      return(
+        <div style={{height:"100vh",width:"100vh",backgroundColor:"gray"}}>
+          <h1>E-Cart</h1>
+          <div>
+            <h2>Products List:</h2>
 
-    const handleDelete=(id)=>{
+            <ol>
+              {products.map((product)=>{
+                return <li key={product.id}>{product.title}
+                <span style={{margin:"20px",color:"green"}}> {product.price}</span>
+                <button onClick={()=>handleAddItem()}>Add To Cart</button>
+                </li>
+              })}
+             
+            </ol>
+          </div>
 
-        const newArr=cartItems.filter((_,i)=>i!==id)
-        setCartItems(newArr)
-
-    }
-
-// const total=cartItems.reduce((acc,item)=>acc+item.price,0)
-
-
-
-  return (
-    <div style={{height:"100vh",width:"100vw",backgroundColor:"gray"}}>
-    <h1>E-cart</h1>
-    <ProductsListing  handleAddToCart={handleAddToCart} products={products} />
-    
-
-<ProductCart cartItems={cartItems} handleDelete={handleDelete} total={total}/>
-
-    </div>
-      
-  )
+        </div>
+      )
+  
 }
 
 export default App
