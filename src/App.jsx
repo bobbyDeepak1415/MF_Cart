@@ -9,6 +9,11 @@ function App() {
 
   const [cartItems,setCartItems]=useState([])
 
+  const handleDelete=(item)=>{
+const newArr=cartItems.filter((_,i)=>i!==item.id)
+    setCartItems(newArr)
+
+  }
 
 
   const handleAddItem=(product)=>{
@@ -31,6 +36,20 @@ function App() {
               })}
              
             </ol>
+          </div>
+          <div>
+            <h3>Your Cart here:</h3>
+            <ul>
+
+            {cartItems.map((item,index)=>{
+              return <li key={index}>{item.name}
+              <span style={{margin:"15px",color:"green"}}> {item.price}
+
+              </span>
+              <button onClick={()=>handleDelete(item)}>Remove</button>
+              </li>
+            })}
+            </ul>
           </div>
 
         </div>
