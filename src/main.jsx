@@ -22,6 +22,6 @@ function createCounter() {
   };
 }
 const counter = createCounter();
-counter.increment();
-counter.increment();
-console.log(counter.getValue());
+// counter.increment();
+console.log(counter.increment())
+// console.log(counter.getValue());
